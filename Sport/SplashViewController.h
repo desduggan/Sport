@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  SplashViewController.h
 //  Sport
 //
 //  Created by Desmond Duggan on 1/20/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
+@interface SplashViewController : UIViewController
 
 @end

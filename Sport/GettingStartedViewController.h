@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  GettingStartedViewController.h
 //  Sport
 //
 //  Created by Desmond Duggan on 1/20/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface GettingStartedViewController : UIViewController
 
 @end

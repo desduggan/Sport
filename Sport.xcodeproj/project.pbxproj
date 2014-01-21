@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13574398188E0AF3005E66EC /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13574397188E0AF3005E66EC /* SplashViewController.m */; };
+		1357439A188E0FEE005E66EC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13574399188E0FEE005E66EC /* QuartzCore.framework */; };
+		1357439D188E1766005E66EC /* GettingStartedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1357439C188E1766005E66EC /* GettingStartedViewController.m */; };
 		13EFA388188E0A33000520F3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13EFA387188E0A33000520F3 /* Foundation.framework */; };
 		13EFA38A188E0A33000520F3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13EFA389188E0A33000520F3 /* CoreGraphics.framework */; };
 		13EFA38C188E0A33000520F3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13EFA38B188E0A33000520F3 /* UIKit.framework */; };
@@ -14,8 +17,6 @@
 		13EFA394188E0A33000520F3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EFA393188E0A33000520F3 /* main.m */; };
 		13EFA398188E0A33000520F3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EFA397188E0A33000520F3 /* AppDelegate.m */; };
 		13EFA39B188E0A33000520F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13EFA399188E0A33000520F3 /* Main.storyboard */; };
-		13EFA39E188E0A33000520F3 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EFA39D188E0A33000520F3 /* FirstViewController.m */; };
-		13EFA3A1188E0A33000520F3 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EFA3A0188E0A33000520F3 /* SecondViewController.m */; };
 		13EFA3A3188E0A33000520F3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13EFA3A2188E0A33000520F3 /* Images.xcassets */; };
 		13EFA3AA188E0A33000520F3 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13EFA3A9188E0A33000520F3 /* XCTest.framework */; };
 		13EFA3AB188E0A33000520F3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13EFA387188E0A33000520F3 /* Foundation.framework */; };
@@ -35,6 +36,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		13574396188E0AF3005E66EC /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
+		13574397188E0AF3005E66EC /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
+		13574399188E0FEE005E66EC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		1357439B188E1766005E66EC /* GettingStartedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GettingStartedViewController.h; sourceTree = "<group>"; };
+		1357439C188E1766005E66EC /* GettingStartedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GettingStartedViewController.m; sourceTree = "<group>"; };
 		13EFA384188E0A33000520F3 /* Sport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13EFA387188E0A33000520F3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		13EFA389188E0A33000520F3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -46,10 +52,6 @@
 		13EFA396188E0A33000520F3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		13EFA397188E0A33000520F3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		13EFA39A188E0A33000520F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		13EFA39C188E0A33000520F3 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		13EFA39D188E0A33000520F3 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		13EFA39F188E0A33000520F3 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		13EFA3A0188E0A33000520F3 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		13EFA3A2188E0A33000520F3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		13EFA3A8188E0A33000520F3 /* SportTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SportTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		13EFA3A9188E0A33000520F3 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -63,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1357439A188E0FEE005E66EC /* QuartzCore.framework in Frameworks */,
 				13EFA38A188E0A33000520F3 /* CoreGraphics.framework in Frameworks */,
 				13EFA38C188E0A33000520F3 /* UIKit.framework in Frameworks */,
 				13EFA388188E0A33000520F3 /* Foundation.framework in Frameworks */,
@@ -104,6 +107,7 @@
 		13EFA386188E0A33000520F3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				13574399188E0FEE005E66EC /* QuartzCore.framework */,
 				13EFA387188E0A33000520F3 /* Foundation.framework */,
 				13EFA389188E0A33000520F3 /* CoreGraphics.framework */,
 				13EFA38B188E0A33000520F3 /* UIKit.framework */,
@@ -118,10 +122,10 @@
 				13EFA396188E0A33000520F3 /* AppDelegate.h */,
 				13EFA397188E0A33000520F3 /* AppDelegate.m */,
 				13EFA399188E0A33000520F3 /* Main.storyboard */,
-				13EFA39C188E0A33000520F3 /* FirstViewController.h */,
-				13EFA39D188E0A33000520F3 /* FirstViewController.m */,
-				13EFA39F188E0A33000520F3 /* SecondViewController.h */,
-				13EFA3A0188E0A33000520F3 /* SecondViewController.m */,
+				13574396188E0AF3005E66EC /* SplashViewController.h */,
+				13574397188E0AF3005E66EC /* SplashViewController.m */,
+				1357439B188E1766005E66EC /* GettingStartedViewController.h */,
+				1357439C188E1766005E66EC /* GettingStartedViewController.m */,
 				13EFA3A2188E0A33000520F3 /* Images.xcassets */,
 				13EFA38E188E0A33000520F3 /* Supporting Files */,
 			);
@@ -254,10 +258,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13EFA3A1188E0A33000520F3 /* SecondViewController.m in Sources */,
 				13EFA398188E0A33000520F3 /* AppDelegate.m in Sources */,
-				13EFA39E188E0A33000520F3 /* FirstViewController.m in Sources */,
+				1357439D188E1766005E66EC /* GettingStartedViewController.m in Sources */,
 				13EFA394188E0A33000520F3 /* main.m in Sources */,
+				13574398188E0AF3005E66EC /* SplashViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +470,7 @@
 				13EFA3BB188E0A33000520F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		13EFA3BC188E0A33000520F3 /* Build configuration list for PBXNativeTarget "SportTests" */ = {
 			isa = XCConfigurationList;
@@ -474,6 +479,7 @@
 				13EFA3BE188E0A33000520F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
