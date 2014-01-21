@@ -23,6 +23,7 @@
 		13EFA3AC188E0A33000520F3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13EFA38B188E0A33000520F3 /* UIKit.framework */; };
 		13EFA3B4188E0A33000520F3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 13EFA3B2188E0A33000520F3 /* InfoPlist.strings */; };
 		13EFA3B6188E0A33000520F3 /* SportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EFA3B5188E0A33000520F3 /* SportTests.m */; };
+		8D6180A0188F0BBE00663BC1 /* AddWorkoutStageOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D61809F188F0BBE00663BC1 /* AddWorkoutStageOneViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		13EFA3B1188E0A33000520F3 /* SportTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SportTests-Info.plist"; sourceTree = "<group>"; };
 		13EFA3B3188E0A33000520F3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		13EFA3B5188E0A33000520F3 /* SportTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SportTests.m; sourceTree = "<group>"; };
+		8D61809E188F0BBE00663BC1 /* AddWorkoutStageOneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddWorkoutStageOneViewController.h; sourceTree = "<group>"; };
+		8D61809F188F0BBE00663BC1 /* AddWorkoutStageOneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddWorkoutStageOneViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,11 +124,10 @@
 			children = (
 				13EFA396188E0A33000520F3 /* AppDelegate.h */,
 				13EFA397188E0A33000520F3 /* AppDelegate.m */,
+				8D61809E188F0BBE00663BC1 /* AddWorkoutStageOneViewController.h */,
+				8D61809F188F0BBE00663BC1 /* AddWorkoutStageOneViewController.m */,
 				13EFA399188E0A33000520F3 /* Main.storyboard */,
-				13574396188E0AF3005E66EC /* SplashViewController.h */,
-				13574397188E0AF3005E66EC /* SplashViewController.m */,
-				1357439B188E1766005E66EC /* GettingStartedViewController.h */,
-				1357439C188E1766005E66EC /* GettingStartedViewController.m */,
+				8D61809D188F0AD900663BC1 /* Start Sequence */,
 				13EFA3A2188E0A33000520F3 /* Images.xcassets */,
 				13EFA38E188E0A33000520F3 /* Supporting Files */,
 			);
@@ -159,6 +161,17 @@
 				13EFA3B2188E0A33000520F3 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8D61809D188F0AD900663BC1 /* Start Sequence */ = {
+			isa = PBXGroup;
+			children = (
+				13574396188E0AF3005E66EC /* SplashViewController.h */,
+				13574397188E0AF3005E66EC /* SplashViewController.m */,
+				1357439B188E1766005E66EC /* GettingStartedViewController.h */,
+				1357439C188E1766005E66EC /* GettingStartedViewController.m */,
+			);
+			name = "Start Sequence";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13EFA398188E0A33000520F3 /* AppDelegate.m in Sources */,
+				8D6180A0188F0BBE00663BC1 /* AddWorkoutStageOneViewController.m in Sources */,
 				1357439D188E1766005E66EC /* GettingStartedViewController.m in Sources */,
 				13EFA394188E0A33000520F3 /* main.m in Sources */,
 				13574398188E0AF3005E66EC /* SplashViewController.m in Sources */,
