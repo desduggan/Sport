@@ -1,15 +1,15 @@
 //
-//  AddWorkoutStageTwoViewController.h
+//  AddWorkoutRepViewController.h
 //  Sport
 //
-//  Created by Desmond Duggan on 1/21/14.
+//  Created by Desmond Duggan on 1/22/14.
 //  Copyright (c) 2014 Desmond Duggan. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "Constant.h"
 
-@interface AddWorkoutStageTwoViewController : UITableViewController <UITextFieldDelegate>
+@interface AddWorkoutRepViewController : UIViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property WorkoutType workoutType;
 @property (nonatomic, retain) NSString *title;

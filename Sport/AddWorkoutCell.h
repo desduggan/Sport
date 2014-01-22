@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface AddWorkoutCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *labelDistance;
+@property (weak, nonatomic) IBOutlet UILabel *labelTotalTime;
+@property (weak, nonatomic) IBOutlet UILabel *labelSplit;
+@property (weak, nonatomic) IBOutlet UILabel *labelRepNum;
 
 @end

@@ -7,8 +7,9 @@
 //
 
 #import "AddWorkoutStageOneViewController.h"
-#import "AddWorkoutStageTwoViewController.h"
+#import "AddWorkoutRepViewController.h"
 #import "Constant.h"
+#import "Util.h"
 
 @interface AddWorkoutStageOneViewController () {
     
@@ -179,19 +180,21 @@
 }
 
 
-
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"addWorkout"]) {
-        AddWorkoutStageTwoViewController *controller = (AddWorkoutStageTwoViewController *)segue.destinationViewController;
+        AddWorkoutRepViewController *controller = (AddWorkoutRepViewController *)segue.destinationViewController;
         
         if (_workoutTypeSwitch.selectedSegmentIndex == 0) {
             [controller setWorkoutType:wTime];
             [controller setTitle:@"Time Workout"];
+            [controller setRepValue:_repValueField.text];
+            [controller setRepCount:[NSNumber numberWithInt: _repCountField.text.integerValue]];
         }
         else if (_workoutTypeSwitch.selectedSegmentIndex == 1) {
             [controller setWorkoutType:wDistance];
             [controller setTitle:@"Distance Workout"];
+            [controller setRepValue:_repValueField.text];
+            [controller setRepCount:[NSNumber numberWithInt: _repCountField.text.integerValue]];
         }
         else {
             [controller setWorkoutType:wCustom];

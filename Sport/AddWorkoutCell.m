@@ -9,6 +9,7 @@
 #import "AddWorkoutCell.h"
 
 @implementation AddWorkoutCell
+@synthesize labelDistance, labelSplit, labelTotalTime;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

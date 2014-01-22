@@ -1,18 +1,18 @@
 //
-//  AddWorkoutStageTwoViewController.m
+//  AddWorkoutRepViewController.m
 //  Sport
 //
-//  Created by Desmond Duggan on 1/21/14.
+//  Created by Desmond Duggan on 1/22/14.
 //  Copyright (c) 2014 Desmond Duggan. All rights reserved.
 //
 
-#import "AddWorkoutStageTwoViewController.h"
+#import "AddWorkoutRepViewController.h"
 #import "Constant.h"
 #import "RepHandle.h"
 #import "Util.h"
 #import "AddWorkoutCell.h"
 
-@interface AddWorkoutStageTwoViewController () {
+@interface AddWorkoutRepViewController () {
     
     __weak IBOutlet UILabel *_pageTitle;
     __weak IBOutlet UILabel *_pageDesc;
@@ -20,21 +20,24 @@
     int _valueDigitCounter;
     
     NSMutableArray *_repsArray;
+    __weak IBOutlet UITableView *_tableview;
 }
 
 @end
 
-@implementation AddWorkoutStageTwoViewController
+@implementation AddWorkoutRepViewController
 @synthesize title, workoutType, repValue, repCount;
 
-- (id)initWithStyle:(UITableViewStyle)style
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithStyle:style];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
     return self;
 }
+
 
 - (void)viewDidAppear:(BOOL)animated {
     _valueDigitCounter = 0;
@@ -42,6 +45,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    NSLog(@"openning rep view contrller view wil appear %d", workoutType);
     [_pageTitle setText:title];
     if (workoutType == wTime) {
         NSString *str = [[@"Input the distance for each timed rep of " stringByAppendingString:repValue] stringByAppendingString:@" minutes"];
@@ -66,10 +70,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
@@ -99,7 +103,14 @@
         [hndl setTotalSeconds:secs];
         [hndl setTotalDistance:distance];
         [_repsArray addObject:hndl];
-        [self.tableView reloadData];
+        
+        
+//        [_tableview reloadData];
+        
+        [_tableview beginUpdates];
+        NSArray *arr = [[NSArray alloc] initWithObjects:[NSIndexPath indexPathForRow:_repsArray.count-1 inSection:0], nil];
+        [_tableview insertRowsAtIndexPaths:arr withRowAnimation:UITableViewRowAnimationMiddle];
+        [_tableview endUpdates];
     }
     else if (workoutType == wDistance) {
         NSNumber *secs = [Util getSecondsFromTimeString:_repValueField.text];
@@ -109,16 +120,18 @@
         [hndl setTotalSeconds:secs];
         [hndl setTotalDistance:distance];
         [_repsArray addObject:hndl];
-        [self.tableView reloadData];
+        
+//        [_tableview reloadData];
+        
+        [_tableview beginUpdates];
+        NSArray *arr = [[NSArray alloc] initWithObjects:[NSIndexPath indexPathForRow:_repsArray.count-1 inSection:0], nil];
+        [_tableview insertRowsAtIndexPaths:arr withRowAnimation:UITableViewRowAnimationMiddle];
+        [_tableview endUpdates];
     }
     else {
         return;
     }
 }
-
-
-
-
 
 
 #pragma mark - Table view data source
@@ -152,54 +165,54 @@
 }
 
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 /*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ }
+ else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }
+ }
+ */
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 /*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
+ #pragma mark - Navigation
+ 
+ // In a story board-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ 
  */
 
 
@@ -211,7 +224,7 @@
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     
     // Second text field for rep value. Time is selected.
-     if (textField.tag == 101 && workoutType == wDistance && range.length == 0) {
+    if (textField.tag == 101 && workoutType == wDistance && range.length == 0) {
         if (textField.text.length == 0) {
             NSString *base = [@"00:0" stringByAppendingString:string];
             [_repValueField setText:base];
@@ -306,9 +319,6 @@
     
     return YES;
 }
-
-
-
 
 
 

@@ -32,6 +32,9 @@
 		13EFA3AC188E0A33000520F3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13EFA38B188E0A33000520F3 /* UIKit.framework */; };
 		13EFA3B4188E0A33000520F3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 13EFA3B2188E0A33000520F3 /* InfoPlist.strings */; };
 		13EFA3B6188E0A33000520F3 /* SportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EFA3B5188E0A33000520F3 /* SportTests.m */; };
+		8D1DFD63188F861C00185FB6 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DFD62188F861C00185FB6 /* Util.m */; };
+		8D1DFD691890284600185FB6 /* RepHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DFD681890284600185FB6 /* RepHandle.m */; };
+		8D1DFD6C1890530600185FB6 /* AddWorkoutRepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DFD6B1890530600185FB6 /* AddWorkoutRepViewController.m */; };
 		8D6180A0188F0BBE00663BC1 /* AddWorkoutStageOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D61809F188F0BBE00663BC1 /* AddWorkoutStageOneViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +84,12 @@
 		13EFA3B1188E0A33000520F3 /* SportTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SportTests-Info.plist"; sourceTree = "<group>"; };
 		13EFA3B3188E0A33000520F3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		13EFA3B5188E0A33000520F3 /* SportTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SportTests.m; sourceTree = "<group>"; };
+		8D1DFD61188F861C00185FB6 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		8D1DFD62188F861C00185FB6 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
+		8D1DFD671890284600185FB6 /* RepHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepHandle.h; sourceTree = "<group>"; };
+		8D1DFD681890284600185FB6 /* RepHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepHandle.m; sourceTree = "<group>"; };
+		8D1DFD6A1890530600185FB6 /* AddWorkoutRepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddWorkoutRepViewController.h; sourceTree = "<group>"; };
+		8D1DFD6B1890530600185FB6 /* AddWorkoutRepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddWorkoutRepViewController.m; sourceTree = "<group>"; };
 		8D61809E188F0BBE00663BC1 /* AddWorkoutStageOneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddWorkoutStageOneViewController.h; sourceTree = "<group>"; };
 		8D61809F188F0BBE00663BC1 /* AddWorkoutStageOneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddWorkoutStageOneViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,6 +126,8 @@
 				1339BFBF188F56DC00E660A1 /* AppViewController.m */,
 				1339BFD1188F728D00E660A1 /* Constant.h */,
 				1339BFD2188F728D00E660A1 /* Constant.m */,
+				8D1DFD61188F861C00185FB6 /* Util.h */,
+				8D1DFD62188F861C00185FB6 /* Util.m */,
 			);
 			name = "App Util";
 			sourceTree = "<group>";
@@ -124,10 +135,14 @@
 		1339BFC2188F5B9C00E660A1 /* Add Workout */ = {
 			isa = PBXGroup;
 			children = (
+				8D1DFD671890284600185FB6 /* RepHandle.h */,
+				8D1DFD681890284600185FB6 /* RepHandle.m */,
 				8D61809E188F0BBE00663BC1 /* AddWorkoutStageOneViewController.h */,
 				8D61809F188F0BBE00663BC1 /* AddWorkoutStageOneViewController.m */,
 				1339BFBB188F567A00E660A1 /* AddWorkoutStageTwoViewController.h */,
 				1339BFBC188F567A00E660A1 /* AddWorkoutStageTwoViewController.m */,
+				8D1DFD6A1890530600185FB6 /* AddWorkoutRepViewController.h */,
+				8D1DFD6B1890530600185FB6 /* AddWorkoutRepViewController.m */,
 				1339BFCE188F701300E660A1 /* AddWorkoutCell.h */,
 				1339BFCF188F701400E660A1 /* AddWorkoutCell.m */,
 			);
@@ -340,9 +355,12 @@
 				1339BFBD188F567A00E660A1 /* AddWorkoutStageTwoViewController.m in Sources */,
 				1357439D188E1766005E66EC /* GettingStartedViewController.m in Sources */,
 				1339BFC0188F56DC00E660A1 /* AppViewController.m in Sources */,
+				8D1DFD63188F861C00185FB6 /* Util.m in Sources */,
+				8D1DFD691890284600185FB6 /* RepHandle.m in Sources */,
 				13EFA394188E0A33000520F3 /* main.m in Sources */,
 				13574398188E0AF3005E66EC /* SplashViewController.m in Sources */,
 				1339BFD3188F728D00E660A1 /* Constant.m in Sources */,
+				8D1DFD6C1890530600185FB6 /* AddWorkoutRepViewController.m in Sources */,
 				1339BFD0188F701400E660A1 /* AddWorkoutCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
