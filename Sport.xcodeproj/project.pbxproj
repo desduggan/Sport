@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1339BFBD188F567A00E660A1 /* AddWorkoutStageTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1339BFBC188F567A00E660A1 /* AddWorkoutStageTwoViewController.m */; };
+		1339BFC0188F56DC00E660A1 /* AppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1339BFBF188F56DC00E660A1 /* AppViewController.m */; };
+		1339BFC8188F6D5B00E660A1 /* meters.png in Resources */ = {isa = PBXBuildFile; fileRef = 1339BFC4188F6D5B00E660A1 /* meters.png */; };
+		1339BFC9188F6D5B00E660A1 /* page1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1339BFC5188F6D5B00E660A1 /* page1.png */; };
+		1339BFCA188F6D5B00E660A1 /* page2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1339BFC6188F6D5B00E660A1 /* page2.png */; };
+		1339BFCB188F6D5B00E660A1 /* time.png in Resources */ = {isa = PBXBuildFile; fileRef = 1339BFC7188F6D5B00E660A1 /* time.png */; };
+		1339BFCD188F6E7100E660A1 /* stopwatch.png in Resources */ = {isa = PBXBuildFile; fileRef = 1339BFCC188F6E7100E660A1 /* stopwatch.png */; };
+		1339BFD0188F701400E660A1 /* AddWorkoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1339BFCF188F701400E660A1 /* AddWorkoutCell.m */; };
+		1339BFD3188F728D00E660A1 /* Constant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1339BFD2188F728D00E660A1 /* Constant.m */; };
 		13574398188E0AF3005E66EC /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13574397188E0AF3005E66EC /* SplashViewController.m */; };
 		1357439A188E0FEE005E66EC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13574399188E0FEE005E66EC /* QuartzCore.framework */; };
 		1357439D188E1766005E66EC /* GettingStartedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1357439C188E1766005E66EC /* GettingStartedViewController.m */; };
@@ -37,6 +46,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1339BFBB188F567A00E660A1 /* AddWorkoutStageTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddWorkoutStageTwoViewController.h; sourceTree = "<group>"; };
+		1339BFBC188F567A00E660A1 /* AddWorkoutStageTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddWorkoutStageTwoViewController.m; sourceTree = "<group>"; };
+		1339BFBE188F56DC00E660A1 /* AppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppViewController.h; sourceTree = "<group>"; };
+		1339BFBF188F56DC00E660A1 /* AppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppViewController.m; sourceTree = "<group>"; };
+		1339BFC4188F6D5B00E660A1 /* meters.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = meters.png; sourceTree = "<group>"; };
+		1339BFC5188F6D5B00E660A1 /* page1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page1.png; sourceTree = "<group>"; };
+		1339BFC6188F6D5B00E660A1 /* page2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page2.png; sourceTree = "<group>"; };
+		1339BFC7188F6D5B00E660A1 /* time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = time.png; sourceTree = "<group>"; };
+		1339BFCC188F6E7100E660A1 /* stopwatch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stopwatch.png; sourceTree = "<group>"; };
+		1339BFCE188F701300E660A1 /* AddWorkoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddWorkoutCell.h; sourceTree = "<group>"; };
+		1339BFCF188F701400E660A1 /* AddWorkoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddWorkoutCell.m; sourceTree = "<group>"; };
+		1339BFD1188F728D00E660A1 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		1339BFD2188F728D00E660A1 /* Constant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constant.m; sourceTree = "<group>"; };
 		13574396188E0AF3005E66EC /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
 		13574397188E0AF3005E66EC /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
 		13574399188E0FEE005E66EC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -88,6 +110,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1339BFC1188F5B8700E660A1 /* App Util */ = {
+			isa = PBXGroup;
+			children = (
+				1339BFBE188F56DC00E660A1 /* AppViewController.h */,
+				1339BFBF188F56DC00E660A1 /* AppViewController.m */,
+				1339BFD1188F728D00E660A1 /* Constant.h */,
+				1339BFD2188F728D00E660A1 /* Constant.m */,
+			);
+			name = "App Util";
+			sourceTree = "<group>";
+		};
+		1339BFC2188F5B9C00E660A1 /* Add Workout */ = {
+			isa = PBXGroup;
+			children = (
+				8D61809E188F0BBE00663BC1 /* AddWorkoutStageOneViewController.h */,
+				8D61809F188F0BBE00663BC1 /* AddWorkoutStageOneViewController.m */,
+				1339BFBB188F567A00E660A1 /* AddWorkoutStageTwoViewController.h */,
+				1339BFBC188F567A00E660A1 /* AddWorkoutStageTwoViewController.m */,
+				1339BFCE188F701300E660A1 /* AddWorkoutCell.h */,
+				1339BFCF188F701400E660A1 /* AddWorkoutCell.m */,
+			);
+			name = "Add Workout";
+			sourceTree = "<group>";
+		};
+		1339BFC3188F6D4A00E660A1 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				1339BFC4188F6D5B00E660A1 /* meters.png */,
+				1339BFC5188F6D5B00E660A1 /* page1.png */,
+				1339BFCC188F6E7100E660A1 /* stopwatch.png */,
+				1339BFC6188F6D5B00E660A1 /* page2.png */,
+				1339BFC7188F6D5B00E660A1 /* time.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		13EFA37B188E0A33000520F3 = {
 			isa = PBXGroup;
 			children = (
@@ -124,11 +182,12 @@
 			children = (
 				13EFA396188E0A33000520F3 /* AppDelegate.h */,
 				13EFA397188E0A33000520F3 /* AppDelegate.m */,
-				8D61809E188F0BBE00663BC1 /* AddWorkoutStageOneViewController.h */,
-				8D61809F188F0BBE00663BC1 /* AddWorkoutStageOneViewController.m */,
 				13EFA399188E0A33000520F3 /* Main.storyboard */,
+				1339BFC2188F5B9C00E660A1 /* Add Workout */,
+				1339BFC1188F5B8700E660A1 /* App Util */,
 				8D61809D188F0AD900663BC1 /* Start Sequence */,
 				13EFA3A2188E0A33000520F3 /* Images.xcassets */,
+				1339BFC3188F6D4A00E660A1 /* Images */,
 				13EFA38E188E0A33000520F3 /* Supporting Files */,
 			);
 			path = Sport;
@@ -251,8 +310,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				13EFA3A3188E0A33000520F3 /* Images.xcassets in Resources */,
+				1339BFC9188F6D5B00E660A1 /* page1.png in Resources */,
+				1339BFC8188F6D5B00E660A1 /* meters.png in Resources */,
 				13EFA392188E0A33000520F3 /* InfoPlist.strings in Resources */,
 				13EFA39B188E0A33000520F3 /* Main.storyboard in Resources */,
+				1339BFCD188F6E7100E660A1 /* stopwatch.png in Resources */,
+				1339BFCB188F6D5B00E660A1 /* time.png in Resources */,
+				1339BFCA188F6D5B00E660A1 /* page2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,9 +337,13 @@
 			files = (
 				13EFA398188E0A33000520F3 /* AppDelegate.m in Sources */,
 				8D6180A0188F0BBE00663BC1 /* AddWorkoutStageOneViewController.m in Sources */,
+				1339BFBD188F567A00E660A1 /* AddWorkoutStageTwoViewController.m in Sources */,
 				1357439D188E1766005E66EC /* GettingStartedViewController.m in Sources */,
+				1339BFC0188F56DC00E660A1 /* AppViewController.m in Sources */,
 				13EFA394188E0A33000520F3 /* main.m in Sources */,
 				13574398188E0AF3005E66EC /* SplashViewController.m in Sources */,
+				1339BFD3188F728D00E660A1 /* Constant.m in Sources */,
+				1339BFD0188F701400E660A1 /* AddWorkoutCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

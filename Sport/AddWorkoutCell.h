@@ -1,5 +1,5 @@
 //
-//  AddWorkoutStageOneViewController.h
+//  AddWorkoutCell.h
 //  Sport
 //
 //  Created by Desmond Duggan on 1/21/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddWorkoutStageOneViewController : UIViewController <UITextFieldDelegate>
+@interface AddWorkoutCell : UITableViewCell
 
 @end
