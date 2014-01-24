@@ -11,6 +11,7 @@
 #import "RepHandle.h"
 #import "Util.h"
 #import "AddWorkoutCell.h"
+#import "WorkoutDetailsViewController.h"
 
 @interface AddWorkoutRepViewController () {
     
@@ -39,13 +40,10 @@
 }
 
 
-- (void)viewDidAppear:(BOOL)animated {
-    _valueDigitCounter = 0;
-    _repsArray = [[NSMutableArray alloc] init];
-}
-
 - (void)viewWillAppear:(BOOL)animated {
-    NSLog(@"openning rep view contrller view wil appear %d", workoutType);
+    // Init stuff
+    
+    
     [_pageTitle setText:title];
     if (workoutType == wTime) {
         NSString *str = [[@"Input the distance for each timed rep of " stringByAppendingString:repValue] stringByAppendingString:@" minutes"];
@@ -76,6 +74,13 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    if (!_repsArray) {
+        _valueDigitCounter = 0;
+        _repsArray = [[NSMutableArray alloc] init];
+    }
+    
+    [_tableview reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -84,8 +89,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-// ---------------------------------
 
 - (IBAction)addBtnPressed:(id)sender {
     if ([_repValueField.text isEqualToString:@""]) {
@@ -131,6 +134,8 @@
     else {
         return;
     }
+    [_repValueField setText:@""];
+    _valueDigitCounter = 0;
 }
 
 
@@ -148,9 +153,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"Indexpath: %@", indexPath);
-    
-    
     static NSString *CellIdentifier = @"AddWorkoutCell";
     AddWorkoutCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
@@ -164,28 +166,34 @@
     return cell;
 }
 
-/*
+
  // Override to support conditional editing of the table view.
  - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
  {
  // Return NO if you do not want the specified item to be editable.
- return YES;
+     
+     return YES;
  }
- */
 
-/*
+
+
  // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
- {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+     if (editingStyle == UITableViewCellEditingStyleDelete) {
+         // Delete the row from the data source
+         [_repsArray removeObjectAtIndex:indexPath.row];
+         _valueDigitCounter = 0;
+         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+         [self performSelector:@selector(reloadTable) withObject:nil afterDelay:0.3];
+     }
+     else if (editingStyle == UITableViewCellEditingStyleInsert) {
+         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+     }
  }
- else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
+
+- (void)reloadTable {
+    [_tableview reloadData];
+}
 
 /*
  // Override to support rearranging the table view.
@@ -320,6 +328,26 @@
     return YES;
 }
 
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"workoutDetails"]) {
+        WorkoutDetailsViewController *controller = (WorkoutDetailsViewController *) segue.destinationViewController;
+        [controller setRepsArray:_repsArray];
+        NSString *name = [[[NSString stringWithFormat:@"%d",repCount.integerValue] stringByAppendingString:@" x "] stringByAppendingString:repValue];
+        [controller setWorkoutName:name];
+        [controller setWorkoutType:workoutType];
+    }
+}
+
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    if ([identifier isEqualToString:@"workoutDetails"]) {
+        if (_repsArray.count != repCount.integerValue) {
+            return NO;
+        }
+    }
+    return YES;
+}
 
 
 

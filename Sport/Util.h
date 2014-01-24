@@ -20,4 +20,9 @@
 
 +(NSString *)getSplitStringFromDistance:(NSNumber *)dist andTime:(NSNumber *)time;
 
+
+// Date stuff
++(NSString *)stringFromDate:(NSDate *)date;
++(NSDate *)dateFromString:(NSString *)string;
+
 @end

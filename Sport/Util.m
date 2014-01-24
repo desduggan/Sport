@@ -77,4 +77,22 @@
     }
 }
 
+
+
+// ------------- DATE ---------------
+
++(NSString *)stringFromDate:(NSDate *)date {
+    NSString *formatString = [NSDateFormatter dateFormatFromTemplate:@"MMM d, yyyy" options:0 locale:[NSLocale currentLocale]];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:formatString];
+    return [dateFormatter stringFromDate:date];
+}
+
++(NSDate *)dateFromString:(NSString *)string {
+    NSString *formatString = [NSDateFormatter dateFormatFromTemplate:@"MMM d, yyyy" options:0 locale:[NSLocale currentLocale]];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:formatString];
+    return [dateFormatter dateFromString:string];
+}
+
 @end

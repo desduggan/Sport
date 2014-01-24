@@ -18,6 +18,8 @@
     __weak IBOutlet UITextField *_repCountField;
     __weak IBOutlet UITextField *_repValueField;
     int _valueDigitCounter;
+    __weak IBOutlet UIBarButtonItem *_nextBtn;
+    
 }
 
 @end
@@ -73,8 +75,6 @@
 
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    NSLog(@"%@ length=%d location=%d counter=%d", string, range.length, range.location, _valueDigitCounter);
-    
     // First text field for number of reps
     if (textField.tag == 100) {
         // must be less than 2
@@ -179,6 +179,19 @@
     return YES;
 }
 
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    if ([identifier isEqualToString:@"addWorkout"]) {
+        BOOL nonEmptyCount = ![_repCountField.text isEqualToString:@""];
+        BOOL nonEmptyValue = ![_repValueField.text isEqualToString:@""];
+        if (nonEmptyCount && nonEmptyValue) {
+            return YES;
+        }
+        else {
+            return NO;
+        }
+    }
+    return YES;
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"addWorkout"]) {
@@ -202,5 +215,10 @@
         }
     }
 }
+
+- (IBAction)close:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 @end

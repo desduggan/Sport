@@ -26,9 +26,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.navigationBar setBarStyle:UIBarStyleBlackTranslucent];
-    [[UINavigationBar appearance] setTintColor:[UIColor grayColor]];
-	// Do any additional setup after loading the view.
+    [self.navigationBar setBarStyle:UIBarStyleBlack];
+    [self.navigationBar setTintColor:[UIColor grayColor]];
+//    [self.navigationBar setTranslucent:NO];
 }
 
 - (void)didReceiveMemoryWarning
