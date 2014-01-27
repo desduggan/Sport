@@ -18,6 +18,11 @@
 		13574398188E0AF3005E66EC /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13574397188E0AF3005E66EC /* SplashViewController.m */; };
 		1357439A188E0FEE005E66EC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13574399188E0FEE005E66EC /* QuartzCore.framework */; };
 		1357439D188E1766005E66EC /* GettingStartedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1357439C188E1766005E66EC /* GettingStartedViewController.m */; };
+		13988B761894460B0089DC4F /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13988B751894460B0089DC4F /* ProfileViewController.m */; };
+		13988B781895B3530089DC4F /* darkGray.png in Resources */ = {isa = PBXBuildFile; fileRef = 13988B771895B3530089DC4F /* darkGray.png */; };
+		13988B7B189602750089DC4F /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13988B7A189602750089DC4F /* DetailsViewController.m */; };
+		13988B7F1896126F0089DC4F /* LaunchImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 13988B7E1896126F0089DC4F /* LaunchImage.jpg */; };
+		13988B81189612930089DC4F /* seat-320x160.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 13988B80189612930089DC4F /* seat-320x160.jpg */; };
 		13EFA388188E0A33000520F3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13EFA387188E0A33000520F3 /* Foundation.framework */; };
 		13EFA38A188E0A33000520F3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13EFA389188E0A33000520F3 /* CoreGraphics.framework */; };
 		13EFA38C188E0A33000520F3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13EFA38B188E0A33000520F3 /* UIKit.framework */; };
@@ -78,6 +83,13 @@
 		13574399188E0FEE005E66EC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1357439B188E1766005E66EC /* GettingStartedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GettingStartedViewController.h; sourceTree = "<group>"; };
 		1357439C188E1766005E66EC /* GettingStartedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GettingStartedViewController.m; sourceTree = "<group>"; };
+		13988B741894460B0089DC4F /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		13988B751894460B0089DC4F /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		13988B771895B3530089DC4F /* darkGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = darkGray.png; sourceTree = "<group>"; };
+		13988B79189602750089DC4F /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		13988B7A189602750089DC4F /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		13988B7E1896126F0089DC4F /* LaunchImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LaunchImage.jpg; sourceTree = "<group>"; };
+		13988B80189612930089DC4F /* seat-320x160.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "seat-320x160.jpg"; sourceTree = "<group>"; };
 		13EFA384188E0A33000520F3 /* Sport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13EFA387188E0A33000520F3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		13EFA389188E0A33000520F3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -186,15 +198,18 @@
 		1339BFC3188F6D4A00E660A1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				13988B7E1896126F0089DC4F /* LaunchImage.jpg */,
 				8D1DFD751891908300185FB6 /* location.png */,
 				8D1DFD6E18918F6600185FB6 /* meters-black.png */,
 				8D1DFD6F18918F6600185FB6 /* stopwatch-black.png */,
+				13988B771895B3530089DC4F /* darkGray.png */,
 				8D1DFD7018918F6600185FB6 /* time-black.png */,
 				1339BFC4188F6D5B00E660A1 /* meters.png */,
 				1339BFC5188F6D5B00E660A1 /* page1.png */,
 				1339BFCC188F6E7100E660A1 /* stopwatch.png */,
 				1339BFC6188F6D5B00E660A1 /* page2.png */,
 				1339BFC7188F6D5B00E660A1 /* time.png */,
+				13988B80189612930089DC4F /* seat-320x160.jpg */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -243,6 +258,10 @@
 				8DBCFCDA18920FE500A00D00 /* HistoryViewController.m */,
 				8D76DFA81893057A0003D8E8 /* HistoryCell.h */,
 				8D76DFA91893057A0003D8E8 /* HistoryCell.m */,
+				13988B741894460B0089DC4F /* ProfileViewController.h */,
+				13988B751894460B0089DC4F /* ProfileViewController.m */,
+				13988B79189602750089DC4F /* DetailsViewController.h */,
+				13988B7A189602750089DC4F /* DetailsViewController.m */,
 				8DBCFCE218921D2600A00D00 /* Models */,
 				1339BFC2188F5B9C00E660A1 /* Add Workout */,
 				1339BFC1188F5B8700E660A1 /* App Util */,
@@ -357,6 +376,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Desmond Duggan";
 				TargetAttributes = {
+					13EFA383188E0A33000520F3 = {
+						DevelopmentTeam = 8XR9BRGP24;
+					};
 					13EFA3A7188E0A33000520F3 = {
 						TestTargetID = 13EFA383188E0A33000520F3;
 					};
@@ -390,12 +412,15 @@
 				8D1DFD7218918F6600185FB6 /* meters-black.png in Resources */,
 				1339BFC9188F6D5B00E660A1 /* page1.png in Resources */,
 				8D1DFD7318918F6600185FB6 /* stopwatch-black.png in Resources */,
+				13988B781895B3530089DC4F /* darkGray.png in Resources */,
 				8D1DFD761891908300185FB6 /* location.png in Resources */,
+				13988B81189612930089DC4F /* seat-320x160.jpg in Resources */,
 				1339BFC8188F6D5B00E660A1 /* meters.png in Resources */,
 				13EFA392188E0A33000520F3 /* InfoPlist.strings in Resources */,
 				13EFA39B188E0A33000520F3 /* Main.storyboard in Resources */,
 				1339BFCD188F6E7100E660A1 /* stopwatch.png in Resources */,
 				1339BFCB188F6D5B00E660A1 /* time.png in Resources */,
+				13988B7F1896126F0089DC4F /* LaunchImage.jpg in Resources */,
 				8D1DFD7418918F6600185FB6 /* time-black.png in Resources */,
 				1339BFCA188F6D5B00E660A1 /* page2.png in Resources */,
 			);
@@ -420,6 +445,7 @@
 				8D1DFD791891998500185FB6 /* WorkoutDetailsViewController.m in Sources */,
 				8D6180A0188F0BBE00663BC1 /* AddWorkoutStageOneViewController.m in Sources */,
 				1357439D188E1766005E66EC /* GettingStartedViewController.m in Sources */,
+				13988B761894460B0089DC4F /* ProfileViewController.m in Sources */,
 				1339BFC0188F56DC00E660A1 /* AppViewController.m in Sources */,
 				8D76DF9E1892F6210003D8E8 /* Rep.m in Sources */,
 				8DBCFCDB18920FE500A00D00 /* HistoryViewController.m in Sources */,
@@ -428,6 +454,7 @@
 				8D76DF9B1892EBDA0003D8E8 /* Sport.xcdatamodeld in Sources */,
 				8D1DFD691890284600185FB6 /* RepHandle.m in Sources */,
 				8D76DFA11892F6220003D8E8 /* Workout.m in Sources */,
+				13988B7B189602750089DC4F /* DetailsViewController.m in Sources */,
 				13EFA394188E0A33000520F3 /* main.m in Sources */,
 				13574398188E0AF3005E66EC /* SplashViewController.m in Sources */,
 				8D76DFAA1893057A0003D8E8 /* HistoryCell.m in Sources */,
@@ -562,10 +589,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sport/Sport-Prefix.pch";
 				INFOPLIST_FILE = "Sport/Sport-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -575,10 +605,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sport/Sport-Prefix.pch";
 				INFOPLIST_FILE = "Sport/Sport-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

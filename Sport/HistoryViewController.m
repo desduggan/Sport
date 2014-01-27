@@ -15,6 +15,7 @@
 
 @interface HistoryViewController () {
     NSMutableArray *_workoutList;
+    NSMutableDictionary *_workoutDictionary;
     }
 
 @end
@@ -37,6 +38,7 @@
     
     if (!_workoutList) {
         _workoutList = [[NSMutableArray alloc] init];
+        _workoutDictionary = [[NSMutableDictionary alloc] init];
     }
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -46,7 +48,9 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    _workoutList = [[DataManager sharedInstance] fetchWorkouts];
+    _workoutList = [[DataManager sharedInstance] getWorkoutArray];
+//    _workoutList = [[DataManager sharedInstance] fetchWorkouts];
+    _workoutDictionary = [self sortWorkoutsByDate];
     [self.tableView reloadData];
     [self.navigationController.navigationBar.topItem setTitle:titleText];
 }
@@ -61,12 +65,15 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return [_workoutDictionary allKeys].count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _workoutList.count;
+    NSArray *keys = [_workoutDictionary allKeys];
+    NSString *key = [keys objectAtIndex:section];
+    NSMutableArray *array = [_workoutDictionary valueForKey:key];
+    return array.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -74,7 +81,11 @@
     static NSString *CellIdentifier = @"HistoryCell";
     HistoryCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    Workout *w = [_workoutList objectAtIndex:indexPath.row];
+    NSArray *keys = [self makeHeadersFromDictionary:_workoutDictionary];
+    NSString *key = [keys objectAtIndex:indexPath.section];
+    NSMutableArray *array = [_workoutDictionary valueForKey:key];
+    
+    Workout *w = [array objectAtIndex:indexPath.row];
     
     [cell.labelName setText:w.name];
     [cell.labelLocation setText:w.location];
@@ -83,6 +94,52 @@
     // Configure the cell...
     
     return cell;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+	// create the parent view that will hold header Label
+	UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 25.0)];
+    [customView setBackgroundColor:[UIColor colorWithRed:43.0/255.0 green:43.0/255.0 blue:43.0/255.0 alpha:1.0]];
+    
+    
+	UILabel * headerLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+	headerLabel.backgroundColor = [UIColor clearColor];
+	headerLabel.opaque = NO;
+	headerLabel.textColor = [UIColor colorWithRed:174.0/255.0 green:174.0/255.0 blue:174.0/255.0 alpha:1.0];
+	headerLabel.frame = CGRectMake(10.0, 4.0, 300.0, 16.0);
+    headerLabel.font = [UIFont fontWithName:@"" size:14];
+    [headerLabel setTextAlignment:NSTextAlignmentCenter];
+    
+    NSMutableArray *headers = [self makeHeadersFromDictionary:_workoutDictionary];
+    headerLabel.text = [headers objectAtIndex:section];
+	[customView addSubview:headerLabel];
+    
+    
+//    UIImageView *sepLine = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"seperator_line"]];
+//    sepLine.frame = CGRectMake(0, 0, customView.frame.size.width, 1);
+//    [customView addSubview:sepLine];
+    
+    
+	return customView;
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 25;
+}
+
+-(NSMutableArray *) makeHeadersFromDictionary:(NSMutableDictionary *)dict {
+    NSMutableArray *keys = [[dict allKeys] mutableCopy];
+    NSMutableArray *dates = [[NSMutableArray alloc] init];
+    for (NSString *key in keys) {
+        [dates addObject:[Util dateFromStringMMYY:key]];
+    }
+    [dates sortUsingSelector:@selector(compare:)];
+    NSMutableArray *finalDates = [[NSMutableArray alloc] init];
+    for (int i = dates.count-1; i >= 0; i--) {
+        [finalDates addObject:[Util stringFromDateMMYY:[dates objectAtIndex:i]]];
+    }
+    return finalDates;
 }
 
 /*
@@ -136,6 +193,37 @@
 
  */
 
+
+
+
+- (NSMutableDictionary *)sortWorkoutsByDate {
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    for (Workout *w in _workoutList) {
+        NSString *dateString = [Util stringFromDateMMYY:w.date];
+        
+        BOOL found = NO;
+        for (NSString *str in [dict allKeys]) {
+            if ([str isEqualToString:dateString]) {
+                found = YES;
+            }
+        }
+        if (!found) {
+            [dict setValue:[[NSMutableArray alloc] init] forKey:dateString];
+        }
+    }
+    
+    for (Workout *w in _workoutList) {
+        NSString *dateString = [Util stringFromDateMMYY:w.date];
+        [[dict objectForKey:dateString] addObject:w];
+    }
+    
+    for (NSString *key in dict.allKeys) {
+        NSMutableArray *array = [dict valueForKey:key];
+        [array sortUsingSelector:@selector(compareByDate:)];
+    }
+    
+    return dict;
+}
 
 
 @end

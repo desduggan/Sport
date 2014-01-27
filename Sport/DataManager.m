@@ -10,7 +10,11 @@
 #import "AppDelegate.h"
 #import <CoreData/CoreData.h>
 
-@implementation DataManager
+@implementation DataManager {
+    NSMutableArray *_workoutList;
+}
+
+
 @synthesize managedObjectContext;
 
 - (id)init
@@ -21,8 +25,19 @@
         AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
         //2
         self.managedObjectContext = appDelegate.managedObjectContext;
+        
+        [self fetchWorkouts];
     }
     return self;
+}
+
+- (NSMutableArray *)getWorkoutArray {
+    if (_workoutList) {
+        return _workoutList;
+    }
+    else {
+        return nil;
+    }
 }
 
 
@@ -37,7 +52,7 @@
     return sharedInstance;
 }
 
-- (NSMutableArray *)fetchWorkouts {
+- (void)fetchWorkouts {
     // initializing NSFetchRequest
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     
@@ -52,7 +67,10 @@
     
     // Returning Fetched Records
     NSLog(@"App Delegate found the following items: \n%@", fetchedRecords);
-    return [NSMutableArray arrayWithArray:fetchedRecords];
+    
+    // update the instance member variable
+    _workoutList = [NSMutableArray arrayWithArray:fetchedRecords];
+//    return [NSMutableArray arrayWithArray:fetchedRecords];
 }
 
 @end

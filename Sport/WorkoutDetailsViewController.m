@@ -108,6 +108,9 @@
     if (![[DataManager sharedInstance].managedObjectContext save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
     }
+    
+    // Reload the data in the DataManager
+    [[DataManager sharedInstance] fetchWorkouts];
     [self closeAll];
 }
 

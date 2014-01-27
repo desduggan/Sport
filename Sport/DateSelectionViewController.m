@@ -44,11 +44,9 @@
 
 - (IBAction)datePickerChanged:(id)sender {
     [_labelDate setText:[Util stringFromDate:[_datePicker date]]];
-    NSLog(@"Helo");
 }
 
 - (IBAction)doneBtnPressed:(id)sender {
-    NSLog(@"sadfa");
     NSDate *dt = [Util dateFromString:_labelDate.text];
     [delegate setDate:dt];
     [self dismissViewControllerAnimated:YES completion:nil];

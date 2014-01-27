@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <CoreData/CoreData.h>
+#import "DataManager.h"
 
 @implementation AppDelegate
 
@@ -23,6 +24,11 @@
     pageControl.pageIndicatorTintColor = [UIColor colorWithRed:184.0/255.0 green:76.0/255.0 blue:65.0/255.0 alpha:1.0];
     pageControl.currentPageIndicatorTintColor = [UIColor colorWithRed:107.0/255.0 green:43.0/255.0 blue:37.0/255.0 alpha:1.0];
     pageControl.backgroundColor = [UIColor clearColor];
+    
+
+    // Retreive workouts from memory
+    [[DataManager sharedInstance] fetchWorkouts];
+
     
     return YES;
 }

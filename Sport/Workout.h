@@ -29,4 +29,6 @@
 - (void)addRep:(NSSet *)values;
 - (void)removeRep:(NSSet *)values;
 
+- (NSComparisonResult)compareByDate:(Workout*)other;
+
 @end

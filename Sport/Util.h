@@ -24,5 +24,8 @@
 // Date stuff
 +(NSString *)stringFromDate:(NSDate *)date;
 +(NSDate *)dateFromString:(NSString *)string;
++(NSString *)stringFromDateMMYY:(NSDate *)date;
++(NSDate *)dateFromStringMMYY:(NSString *)dateString;
+
 
 @end

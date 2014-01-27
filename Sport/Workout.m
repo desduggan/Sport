@@ -20,4 +20,17 @@
 @dynamic type;
 @dynamic rep;
 
+
+- (NSComparisonResult)compareByDate:(Workout*)other {
+    if ([self.date compare:other.date] == NSOrderedDescending) {
+        return NSOrderedAscending;
+    }
+    else if ([self.date compare:other.date] == NSOrderedAscending) {
+        return NSOrderedDescending;
+    }
+    else {
+        return NSOrderedSame;
+    }
+}
+
 @end

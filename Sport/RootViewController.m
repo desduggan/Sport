@@ -8,6 +8,7 @@
 
 #import "RootViewController.h"
 #import "HistoryViewController.h"
+#import "ProfileViewController.h"
 
 @interface RootViewController ()
 
@@ -31,13 +32,13 @@
     
     
     [super viewDidLoad];
-    pageTitles = @[@"All", @"Rowing", @"Biking", @"Running", @"Swimming"];
+    pageTitles = @[@"Workouts", @"Profile"];
 
     // Create page view controller
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
     self.pageViewController.dataSource = self;
     
-    HistoryViewController *startingViewController = [self viewControllerAtIndex:0];
+    HistoryViewController *startingViewController = (HistoryViewController *)[self viewControllerAtIndex:0];
     NSArray *viewControllers = @[startingViewController];
     [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     
@@ -61,18 +62,27 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (HistoryViewController *)viewControllerAtIndex:(NSUInteger)index
+- (UIViewController *)viewControllerAtIndex:(NSUInteger)index
 {
     if (([self.pageTitles count] == 0) || (index >= [self.pageTitles count])) {
         return nil;
     }
     
-    // Create a new view controller and pass suitable data.
-    HistoryViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageContentViewController"];
-    pageContentViewController.titleText = self.pageTitles[index];
-    pageContentViewController.pageIndex = index;
+    if (index == 0) {
+        // Create a new view controller and pass suitable data.
+        HistoryViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageContentViewController"];
+        pageContentViewController.titleText = self.pageTitles[index];
+        pageContentViewController.pageIndex = index;
+        return pageContentViewController;
+    }
+    else {
+        ProfileViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageContentProfileController"];
+        pageContentViewController.titleText = self.pageTitles[index];
+        pageContentViewController.pageIndex = index;
+        return pageContentViewController;
+    }
     
-    return pageContentViewController;
+    
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController

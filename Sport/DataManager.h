@@ -13,6 +13,7 @@
 
 + (DataManager *)sharedInstance;
 
-- (NSMutableArray *)fetchWorkouts;
+- (NSMutableArray *)getWorkoutArray;
+- (void)fetchWorkouts;
 
 @end
