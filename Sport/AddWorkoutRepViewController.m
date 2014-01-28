@@ -161,7 +161,7 @@
     [cell.labelDistance setText:[NSString stringWithFormat:@"%@", hndl.totalDistance]];
     [cell.labelTotalTime setText:[NSString stringWithFormat:@"%@", [Util getTimeForSeconds:hndl.totalSeconds]]];
     [cell.labelSplit setText:[Util getSplitStringFromDistance:hndl.totalDistance andTime:hndl.totalSeconds]];
-    [cell.labelRepNum setText:[[[NSString stringWithFormat:@"%d", indexPath.row+1] stringByAppendingString:@"/"] stringByAppendingString:[NSString stringWithFormat:@"%d",repCount.intValue]]];
+    [cell.labelRepNum setText:[[[NSString stringWithFormat:@"%ld", indexPath.row+1] stringByAppendingString:@"/"] stringByAppendingString:[NSString stringWithFormat:@"%d",repCount.intValue]]];
     
     return cell;
 }

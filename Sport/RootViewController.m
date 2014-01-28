@@ -9,6 +9,7 @@
 #import "RootViewController.h"
 #import "HistoryViewController.h"
 #import "ProfileViewController.h"
+#import "AccoladeViewController.h"
 
 @interface RootViewController ()
 
@@ -32,7 +33,7 @@
     
     
     [super viewDidLoad];
-    pageTitles = @[@"Workouts", @"Profile"];
+    pageTitles = @[@"Workouts", @"Profile", @"Accolades"];
 
     // Create page view controller
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
@@ -75,8 +76,14 @@
         pageContentViewController.pageIndex = index;
         return pageContentViewController;
     }
-    else {
+    else if (index == 1){
         ProfileViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageContentProfileController"];
+        pageContentViewController.titleText = self.pageTitles[index];
+        pageContentViewController.pageIndex = index;
+        return pageContentViewController;
+    }
+    else {
+        AccoladeViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AccoladeContentController"];
         pageContentViewController.titleText = self.pageTitles[index];
         pageContentViewController.pageIndex = index;
         return pageContentViewController;

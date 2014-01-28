@@ -1,18 +1,18 @@
 //
-//  ProfileViewController.m
+//  AccoladeViewController.m
 //  Sport
 //
-//  Created by Desmond Duggan on 1/25/14.
+//  Created by Desmond Duggan on 1/28/14.
 //  Copyright (c) 2014 Desmond Duggan. All rights reserved.
 //
 
-#import "ProfileViewController.h"
+#import "AccoladeViewController.h"
 
-@interface ProfileViewController ()
+@interface AccoladeViewController ()
 
 @end
 
-@implementation ProfileViewController
+@implementation AccoladeViewController
 @synthesize pageIndex, titleText;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

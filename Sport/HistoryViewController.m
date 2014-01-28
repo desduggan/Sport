@@ -12,6 +12,7 @@
 #import "Workout.h"
 #import "Rep.h"
 #import "Util.h"
+#import "DetailsViewController.h"
 
 @interface HistoryViewController () {
     NSMutableArray *_workoutList;
@@ -40,6 +41,15 @@
         _workoutList = [[NSMutableArray alloc] init];
         _workoutDictionary = [[NSMutableDictionary alloc] init];
     }
+    
+    
+    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ergs_bw.jpg"]];
+    [tempImageView setFrame:self.tableView.frame];
+    
+    [self.tableView setBackgroundView:tempImageView];
+
+    
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -53,6 +63,9 @@
     _workoutDictionary = [self sortWorkoutsByDate];
     [self.tableView reloadData];
     [self.navigationController.navigationBar.topItem setTitle:titleText];
+    
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"darkGray"] forBarMetrics:UIBarMetricsDefault];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -87,9 +100,24 @@
     
     Workout *w = [array objectAtIndex:indexPath.row];
     
+    int totalDist = 0.0;
+    double totalTime = 0.0;
+    NSMutableArray *repsArray = [[NSMutableArray alloc] init];
+    for (id r in w.rep) {
+        Rep *rep = (Rep *)r;
+        [repsArray addObject:rep];
+        totalDist += rep.totalDistance.integerValue;
+        totalTime += rep.totalTime.doubleValue;
+    }
+    
     [cell.labelName setText:w.name];
     [cell.labelLocation setText:w.location];
     [cell.labelDate setText:[Util stringFromDate:w.date]];
+    
+    [cell.labelTotalMeters setText:[[NSString stringWithFormat:@"%d",totalDist] stringByAppendingString:@" m"]];
+    [cell.labelTotalTime setText:[NSString stringWithFormat:@"%@", [Util getTimeForSeconds:[NSNumber numberWithDouble:totalTime]]]];
+    [cell.labelAverageSplit setText:[Util getSplitStringFromDistance:[NSNumber numberWithInt:totalDist] andTime:[NSNumber numberWithDouble:totalTime]] ];
+//    [cell setBackgroundColor:[UIColor clearColor]];
     
     // Configure the cell...
     
@@ -136,7 +164,7 @@
     }
     [dates sortUsingSelector:@selector(compare:)];
     NSMutableArray *finalDates = [[NSMutableArray alloc] init];
-    for (int i = dates.count-1; i >= 0; i--) {
+    for (long i = dates.count-1; i >= 0; i--) {
         [finalDates addObject:[Util stringFromDateMMYY:[dates objectAtIndex:i]]];
     }
     return finalDates;
@@ -192,6 +220,20 @@
 }
 
  */
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"detailsPush"]) {
+        NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+        NSArray *keys = [self makeHeadersFromDictionary:_workoutDictionary];
+        NSString *key = [keys objectAtIndex:path.section];
+        NSMutableArray *array = [_workoutDictionary valueForKey:key];
+        
+        Workout *w = [array objectAtIndex:path.row];
+        
+        DetailsViewController *controller = (DetailsViewController*) segue.destinationViewController;
+        [controller setWorkout:w];
+    }
+}
 
 
 

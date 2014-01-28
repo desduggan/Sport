@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Workout.h"
 
-@interface DetailsViewController : UIViewController
+@interface DetailsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (strong, nonatomic) Workout *workout;
 
 @end

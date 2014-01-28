@@ -27,9 +27,13 @@
 {
     [super viewDidLoad];
     [self.navigationBar setBarStyle:UIBarStyleBlack];
-//    [self.navigationBar setTintColor:[UIColor blueColor]];
-    [self.navigationBar setBarTintColor:[UIColor colorWithRed:45.0/255.0 green:45.0/255.0 blue:45.0/255.0 alpha:1.0]];
-//    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"darkGray"] forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"transparent"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"darkGray"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationBar setTintColor:[UIColor whiteColor]];
+
+
+//    [self.navigationBar setBarTintColor:[UIColor colorWithRed:45.0/255.0 green:45.0/255.0 blue:45.0/255.0 alpha:1.0]];
+    
 //    [self.navigationBar setTranslucent:NO];
 }
 
