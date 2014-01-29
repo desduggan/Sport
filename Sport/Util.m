@@ -19,7 +19,7 @@
     return [NSNumber numberWithDouble:totalTime];
 }
 
-+ (NSNumber *)getSecondsFromTimeString:(NSString *)string withDec:(BOOL)dec {
++ (NSNumber *)getSecondsFromTimeStringWithDecimal:(NSString *)string {
     NSArray *comps = [string componentsSeparatedByString:@":"];
     int minutes = [comps[0] intValue];
     NSArray *othercomps = [comps[1] componentsSeparatedByString:@"."];
@@ -48,7 +48,6 @@
 + (NSString *)getTimeForSeconds:(NSNumber*)seconds {
     int minute = seconds.doubleValue / 60;
     int second = seconds.doubleValue - (minute*60);
-    //    int decimal = ((int)(seconds.doubleValue*10.0)) % 10;
     
     NSString *splitString = [NSString stringWithFormat:@"%d",minute];
     

@@ -7,6 +7,7 @@
 //
 
 #import "ProfileViewController.h"
+#import "DataManager.h"
 
 @interface ProfileViewController ()
 

@@ -115,7 +115,7 @@
     [cell.labelDate setText:[Util stringFromDate:w.date]];
     
     [cell.labelTotalMeters setText:[[NSString stringWithFormat:@"%d",totalDist] stringByAppendingString:@" m"]];
-    [cell.labelTotalTime setText:[NSString stringWithFormat:@"%@", [Util getTimeForSeconds:[NSNumber numberWithDouble:totalTime]]]];
+    [cell.labelTotalTime setText:[NSString stringWithFormat:@"%@", [Util getSplitForSeconds:[NSNumber numberWithDouble:totalTime]]]];
     [cell.labelAverageSplit setText:[Util getSplitStringFromDistance:[NSNumber numberWithInt:totalDist] andTime:[NSNumber numberWithDouble:totalTime]] ];
 //    [cell setBackgroundColor:[UIColor clearColor]];
     

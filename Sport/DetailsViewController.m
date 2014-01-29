@@ -71,7 +71,7 @@
     [_labelDate setText:[Util stringFromDate:workout.date]];
     [_labelLocation setText:workout.location];
     [_labelDistance setText:[[NSString stringWithFormat:@"%d",totalDist] stringByAppendingString:@" meters"]];
-    [_labelTotalTime setText:[NSString stringWithFormat:@"%@", [Util getTimeForSeconds:[NSNumber numberWithDouble:totalTime]]]];
+    [_labelTotalTime setText:[NSString stringWithFormat:@"%@", [Util getSplitForSeconds:[NSNumber numberWithDouble:totalTime]]]];
     [_labelSplit setText:[[Util getSplitStringFromDistance:[NSNumber numberWithInt:totalDist] andTime:[NSNumber numberWithDouble:totalTime]] stringByAppendingString:@" / 500m"]];
     
     

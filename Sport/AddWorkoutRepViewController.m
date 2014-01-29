@@ -22,6 +22,10 @@
     
     NSMutableArray *_repsArray;
     __weak IBOutlet UITableView *_tableview;
+    
+    
+    __weak IBOutlet UILabel *_errorLabel;
+    
 }
 
 @end
@@ -69,12 +73,6 @@
 {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
     if (!_repsArray) {
         _valueDigitCounter = 0;
         _repsArray = [[NSMutableArray alloc] init];
@@ -92,11 +90,19 @@
 
 - (IBAction)addBtnPressed:(id)sender {
     if ([_repValueField.text isEqualToString:@""]) {
+        [_errorLabel setText: @"Please enter a valid time."];
         return;
     }
     if (_repsArray.count >= repCount.intValue) {
+        NSString *error = [[@"You've already added " stringByAppendingString:[NSString stringWithFormat:@"%d", repCount.intValue]]stringByAppendingString:@" reps."];
+        [_errorLabel setText: error];
         return;
     }
+    if (_valueDigitCounter < 4 && workoutType == wDistance) {
+        [_errorLabel setText: @"Please enter a valid time."];
+        return;
+    }
+    
     
     else if (workoutType == wTime) {
         NSNumber *secs = [Util getSecondsFromTimeString:repValue];
@@ -116,7 +122,13 @@
         [_tableview endUpdates];
     }
     else if (workoutType == wDistance) {
-        NSNumber *secs = [Util getSecondsFromTimeString:_repValueField.text];
+        NSNumber *secs;
+        if (_valueDigitCounter == 4) {
+            secs = [Util getSecondsFromTimeString:_repValueField.text];
+        }
+        else {
+            secs = [Util getSecondsFromTimeStringWithDecimal:_repValueField.text];
+        }
         NSNumber *distance = [NSNumber numberWithFloat:repValue.floatValue];
         
         RepHandle *hndl = [[RepHandle alloc] init];
@@ -136,6 +148,7 @@
     }
     [_repValueField setText:@""];
     _valueDigitCounter = 0;
+    [_errorLabel setText: @""];
 }
 
 
@@ -159,9 +172,9 @@
     RepHandle *hndl = [_repsArray objectAtIndex:indexPath.row];
     
     [cell.labelDistance setText:[NSString stringWithFormat:@"%@", hndl.totalDistance]];
-    [cell.labelTotalTime setText:[NSString stringWithFormat:@"%@", [Util getTimeForSeconds:hndl.totalSeconds]]];
+    [cell.labelTotalTime setText:[NSString stringWithFormat:@"%@", [Util getSplitForSeconds:hndl.totalSeconds]]];
     [cell.labelSplit setText:[Util getSplitStringFromDistance:hndl.totalDistance andTime:hndl.totalSeconds]];
-    [cell.labelRepNum setText:[[[NSString stringWithFormat:@"%ld", indexPath.row+1] stringByAppendingString:@"/"] stringByAppendingString:[NSString stringWithFormat:@"%d",repCount.intValue]]];
+    [cell.labelRepNum setText:[[[NSString stringWithFormat:@"%d", indexPath.row+1] stringByAppendingString:@"/"] stringByAppendingString:[NSString stringWithFormat:@"%d",repCount.intValue]]];
     
     return cell;
 }
@@ -234,82 +247,127 @@
     // Second text field for rep value. Time is selected.
     if (textField.tag == 101 && workoutType == wDistance && range.length == 0) {
         if (textField.text.length == 0) {
-            NSString *base = [@"00:0" stringByAppendingString:string];
-            [_repValueField setText:base];
             _valueDigitCounter += 1;
-            return NO;
+            return YES;
         }
         else if (_valueDigitCounter == 1) {
-            NSRange lastChars = {4,1};
-            NSString *oldStr = [_repValueField.text substringWithRange:lastChars];
-            NSString *base = [[@"00:" stringByAppendingString:oldStr] stringByAppendingString:string];
-            [_repValueField setText:base];
             _valueDigitCounter += 1;
-            return NO;
+            return YES;
         }
         else if (_valueDigitCounter == 2) {
-            NSRange r2 = {3,1};
-            NSRange r1 = {4,1};
+            if (string.intValue > 5) {
+                return NO;
+            }
             
-            NSString *dig1 = [_repValueField.text substringWithRange:r1];
-            NSString *dig2 = [_repValueField.text substringWithRange:r2];
-            NSString *base = [[[[@"0" stringByAppendingString:dig2] stringByAppendingString:@":"] stringByAppendingString:dig1] stringByAppendingString:string];
+            NSRange rng = {0,2};
+            
+            NSString *firstHalf = [_repValueField.text substringWithRange:rng];
+            NSString *base = [[firstHalf stringByAppendingString:@":"] stringByAppendingString:string];
             
             [_repValueField setText:base];
             _valueDigitCounter += 1;
             return NO;
         }
         else if (_valueDigitCounter == 3) {
-            NSRange r3 = {1,1};
-            NSRange r2 = {3,1};
-            NSRange r1 = {4,1};
+            _valueDigitCounter += 1;
+            return YES;
+        }
+        else if (_valueDigitCounter == 4) {
+            NSRange rng = {0,5};
             
-            
-            NSString *dig1 = [_repValueField.text substringWithRange:r1];
-            NSString *dig2 = [_repValueField.text substringWithRange:r2];
-            NSString *dig3 = [_repValueField.text substringWithRange:r3];
-            NSString *base = [[[[dig3 stringByAppendingString:dig2] stringByAppendingString:@":"] stringByAppendingString:dig1] stringByAppendingString:string];
-            
+            NSString *firstHalf = [_repValueField.text substringWithRange:rng];
+            NSString *base = [[firstHalf stringByAppendingString:@"."] stringByAppendingString:string];
             [_repValueField setText:base];
             _valueDigitCounter += 1;
             return NO;
         }
-        else if (_valueDigitCounter >= 4) {
+        else if (_valueDigitCounter >= 5) {
             return NO;
         }
     }
+//    if (textField.tag == 101 && workoutType == wDistance && range.length == 0) {
+//        if (textField.text.length == 0) {
+//            NSString *base = [@"00:0" stringByAppendingString:string];
+//            [_repValueField setText:base];
+//            _valueDigitCounter += 1;
+//            return NO;
+//        }
+//        else if (_valueDigitCounter == 1) {
+//            NSRange lastChars = {4,1};
+//            NSString *oldStr = [_repValueField.text substringWithRange:lastChars];
+//            NSString *base = [[@"00:" stringByAppendingString:oldStr] stringByAppendingString:string];
+//            [_repValueField setText:base];
+//            _valueDigitCounter += 1;
+//            return NO;
+//        }
+//        else if (_valueDigitCounter == 2) {
+//            NSRange r2 = {3,1};
+//            NSRange r1 = {4,1};
+//            
+//            NSString *dig1 = [_repValueField.text substringWithRange:r1];
+//            NSString *dig2 = [_repValueField.text substringWithRange:r2];
+//            NSString *base = [[[[@"0" stringByAppendingString:dig2] stringByAppendingString:@":"] stringByAppendingString:dig1] stringByAppendingString:string];
+//            
+//            [_repValueField setText:base];
+//            _valueDigitCounter += 1;
+//            return NO;
+//        }
+//        else if (_valueDigitCounter == 3) {
+//            NSRange r3 = {1,1};
+//            NSRange r2 = {3,1};
+//            NSRange r1 = {4,1};
+//            
+//            
+//            NSString *dig1 = [_repValueField.text substringWithRange:r1];
+//            NSString *dig2 = [_repValueField.text substringWithRange:r2];
+//            NSString *dig3 = [_repValueField.text substringWithRange:r3];
+//            NSString *base = [[[[dig3 stringByAppendingString:dig2] stringByAppendingString:@":"] stringByAppendingString:dig1] stringByAppendingString:string];
+//            
+//            [_repValueField setText:base];
+//            _valueDigitCounter += 1;
+//            return NO;
+//        }
+//        else if (_valueDigitCounter >= 4) {
+//            NSRange r3 = {1,1};
+//            NSRange r2 = {3,1};
+//            NSRange r1 = {4,1};
+//            
+//            
+//            NSString *dig1 = [_repValueField.text substringWithRange:r1];
+//            NSString *dig2 = [_repValueField.text substringWithRange:r2];
+//            NSString *dig3 = [_repValueField.text substringWithRange:r3];
+//            NSString *base = [[[[dig3 stringByAppendingString:dig2] stringByAppendingString:@":"] stringByAppendingString:dig1] stringByAppendingString:string];
+//            
+//            [_repValueField setText:base];
+//            _valueDigitCounter += 1;
+//            return NO;
+//        }
+//        else if (_valueDigitCounter >= 5) {
+//            return NO;
+//        }
+//    }
     // Deal with deletions. Rep value editing and time selected.
     else if (textField.tag == 101 && workoutType == wDistance && range.length == 1) {
         
-        if (_valueDigitCounter == 4) {
-            NSString *dig0 = [_repValueField.text substringWithRange:(NSRange){0,1}];
-            NSString *dig1 = [_repValueField.text substringWithRange:(NSRange){1,1}];
-            NSString *dig2 = [_repValueField.text substringWithRange:(NSRange){3,1}];
-            
-            NSString *base = [[[[@"0" stringByAppendingString:dig0] stringByAppendingString:@":"] stringByAppendingString:dig1] stringByAppendingString:dig2];
-            
+        if (_valueDigitCounter == 5) {
+            NSString *base = [_repValueField.text substringWithRange:(NSRange){0,5}];
             [_repValueField setText:base];
             _valueDigitCounter -= 1;
             return NO;
         }
+        else if (_valueDigitCounter == 4) {
+            _valueDigitCounter -= 1;
+            return YES;
+        }
         else if (_valueDigitCounter == 3) {
-            NSString *dig1 = [_repValueField.text substringWithRange:(NSRange){1,1}];
-            NSString *dig2 = [_repValueField.text substringWithRange:(NSRange){3,1}];
-            
-            NSString *base = [[@"00:" stringByAppendingString:dig1] stringByAppendingString:dig2];
-            
+            NSString *base = [_repValueField.text substringWithRange:(NSRange){0,2}];
             [_repValueField setText:base];
             _valueDigitCounter -= 1;
             return NO;
         }
         else if (_valueDigitCounter == 2) {
-            NSString *dig2 = [_repValueField.text substringWithRange:(NSRange){3,1}];
-            
-            NSString *base = [@"00:0" stringByAppendingString:dig2];
-            
-            [_repValueField setText:base];
             _valueDigitCounter -= 1;
-            return NO;
+            return YES;
         }
         else if (_valueDigitCounter == 1) {
             [_repValueField setText:@""];

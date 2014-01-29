@@ -12,7 +12,7 @@
 
 +(NSNumber *)getSecondsFromTimeString:(NSString *) string;
 
-+ (NSNumber *)getSecondsFromTimeString:(NSString *)string withDec:(BOOL)dec;
++ (NSNumber *)getSecondsFromTimeStringWithDecimal:(NSString *)string;
 
 + (NSString *)getSplitForSeconds:(NSNumber *)seconds;
 
