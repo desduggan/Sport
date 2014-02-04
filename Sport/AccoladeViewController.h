@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AccoladeViewController : UIViewController
+@interface AccoladeViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property NSUInteger pageIndex;
 @property NSString *titleText;

@@ -33,7 +33,7 @@
     
     
     [super viewDidLoad];
-    pageTitles = @[@"Workouts", @"Profile", @"Accolades"];
+    pageTitles = @[@"Workouts", @"Profile", @"Calculator"];
 
     // Create page view controller
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];

@@ -111,8 +111,7 @@
     }
     
     [cell.labelName setText:w.name];
-    [cell.labelLocation setText:w.location];
-    [cell.labelDate setText:[Util stringFromDate:w.date]];
+    [cell.labelDate setText:[Util stringFromDateWithDayOfWeek:w.date]];
     
     [cell.labelTotalMeters setText:[[NSString stringWithFormat:@"%d",totalDist] stringByAppendingString:@" m"]];
     [cell.labelTotalTime setText:[NSString stringWithFormat:@"%@", [Util getSplitForSeconds:[NSNumber numberWithDouble:totalTime]]]];

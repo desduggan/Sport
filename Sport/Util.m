@@ -107,4 +107,18 @@
     return [dateFormatter dateFromString:dateString];
 }
 
++(NSString *)stringFromDateMMMMDYYYY:(NSDate *)date {
+    NSString *formatString = [NSDateFormatter dateFormatFromTemplate:@"MMMM d, yyyy" options:0 locale:[NSLocale currentLocale]];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:formatString];
+    return [dateFormatter stringFromDate:date];
+}
+
++(NSString *)stringFromDateWithDayOfWeek:(NSDate *)date {
+    NSString *formatString = [NSDateFormatter dateFormatFromTemplate:@"EEEE MMM d, yyyy" options:0 locale:[NSLocale currentLocale]];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:formatString];
+    return [dateFormatter stringFromDate:date];
+}
+
 @end

@@ -66,7 +66,7 @@
     NSArray *fetchedRecords = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
     // Returning Fetched Records
-    NSLog(@"App Delegate found the following items: \n%@", fetchedRecords);
+//    NSLog(@"App Delegate found the following items: \n%@", fetchedRecords);
     
     // update the instance member variable
     _workoutList = [NSMutableArray arrayWithArray:fetchedRecords];

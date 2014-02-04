@@ -26,6 +26,7 @@
 +(NSDate *)dateFromString:(NSString *)string;
 +(NSString *)stringFromDateMMYY:(NSDate *)date;
 +(NSDate *)dateFromStringMMYY:(NSString *)dateString;
-
++(NSString *)stringFromDateMMMMDYYYY:(NSDate *)date;
++(NSString *)stringFromDateWithDayOfWeek:(NSDate *)date;
 
 @end
